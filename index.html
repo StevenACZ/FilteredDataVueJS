@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Filtered Data with Methods VueJS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app">
+	<h3>Search a title: <input v-model="filterText" /></h3>
+	<h3>Sort titles by:
+		<button @click="sortLowest">Lowest Rated</button>
+		<button @click="sortHighest">Highest Rated</button>
+	</h3>
+	<table>
+		<thead>
+			<tr>
+				<th v-for="key in columns">
+					{{ key }}
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr v-for="entry in filteredFilms">
+				<td v-for="column in columns">
+					{{entry[column]}}
+				</td>
+			</tr>
+		<tbody>
+	</table>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
